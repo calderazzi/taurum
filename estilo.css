@@ -1,3 +1,4 @@
+/* GENERAL */
 html {
 	background-image: linear-gradient(to right, rgb(212, 175, 25), rgb(255, 111, 0), rgb(238, 117, 23), rgb(255, 102, 0)); 
 	}
@@ -6,14 +7,7 @@ body {
 	margin-left: 0;
 	margin-right: 0;
 }
-
-.nav-responsive {
-display: none;
-}
-#taurum {
-	display: none;
-}
-
+/* WHATSAPP */
 .whatsapp {
 	position:fixed;
 	width: 60px;
@@ -26,12 +20,11 @@ display: none;
 	text-align:center;
 	z-index:100;
 }
-  
 .whatsapp-icon {
 	margin-top: 7px;
 	font-size: 48px;
 }
-
+/* NAVEGACION */
 .nav {
 	position: fixed;
 	width: 100%;
@@ -42,7 +35,6 @@ display: none;
 .nav__li {
 	color: white;
 	display: inline-block;
-	padding-left: 30px;
 }
 .nav__li:hover {
 	color: #707070;
@@ -51,17 +43,26 @@ display: none;
 .nav__li a {
 	color: white;
 	font-family: sans-serif;
-	font-size: 25px;
 }
 .nav__li:hover a {
 	color: #707070;
 	transition: all 1s;
 }
-
+.nav__sub {
+	position: fixed;
+	bottom: 10px;
+	left: 5px;
+	color: white;
+	display: inline-block;
+	cursor: pointer;
+}
+.nav__sub:hover {
+	color: #707070;
+	transition: all 1s;
+}
 i {
 	font-size: 25px;
 }
-
 #cabeza {
 	height: 50px;
 	float: right;
@@ -73,11 +74,7 @@ i {
 	box-shadow: 4px 4px black;
 	transition: all 1s;
 }
-
-.container {
-	display: inline-flex;
-}
-
+/* CARRITO */
 .carrito {
 	position: absolute;
 	list-style: none;
@@ -89,7 +86,6 @@ i {
 	text-decoration: none;
 	cursor: pointer;
 }
-
 #esconder {
 	display: none;
 	position: absolute;
@@ -99,118 +95,6 @@ i {
 	width: 200px;
 	font-size: 30px;
 }
-
-.card {
-	margin-top: 65px;
-	margin-left: 25px;
-	width: 250px;
-	height: 450px;
-	padding: 6px;
-	border: 5px solid red;
-	border-radius: 0 20px;
-	box-shadow: 10px 10px 10px rgb(31, 30, 30);
-	text-align: center;
-}
-
-.fotoCard {
-	width: 240px;
-	height: 280px;
-	border-radius: 0 20px 0 0;
-	box-shadow: 5px 10px 10px black;
-}
-
-.descripcion {
-	display: none;
-	position: absolute;
-	width: 240px;
-	padding: 5px;
-	margin-top: -280px;
-	color: white;
-	font-size: 20px;
-	background-color: red;
-	border-radius: 15px;
-	z-index: 1;
-}
-
-.descript:hover > .descripcion {
-	display: grid;
-}
-
-h4 {
-	position: absolute;
-	margin-top: -85px;
-	margin-left: 20px;
-	font-size: 60px;
-	color: rgba(0, 0, 0, 0.339);
-	border-radius: 20px;
-	padding: 5px;
-}
-
-.h1 {
-	position: absolute;
-	font-size: 3.5vw;
-	text-decoration: underline;
-	margin-left: 10px;
-}
-.sobreNos {
-	position: absolute;
-	width: 70%;
-	height: 300px;
-	color: black;
-	margin-top: 220px;
-	font-size: 2.7vw;
-	left: 15%;
-}
-
-.mapa {
-	position: absolute;
-	margin-top: 650px;
-	margin-left: 50px;
-}
-iframe {
-	width: 700px;
-	height: 400px;
-}
-
-.telef {
-	position: absolute;
-	margin-top: 700px;
-	font-size: 3vw;
-	left: 60%;
-}
-
-.title {
-	background-color: rgb(255, 72, 0);
-	border-radius: 15px;
-	height: 80px;
-	width: 245px;
-	font-size: 20px;
-}
-
-.precios {
-	width: 240px;
-}
-
-.pre {
-	display: contents;
-	font-size: 25px;
-	color: rgb(120, 4, 4);
-}
-
-.btn {
-	width: 200px;
-	height: 30px;
-	border-radius: 10px;
-	font-size: 18px;
-	font-weight: bolder;
-	cursor: pointer;
-	background-color: rgb(255, 34, 0);
-	margin-left: 50px;
-}
-.btn:active {
-	transform: scale(0.85);
-}
-
 .carroLista {
 	position: absolute;
 	margin: auto 15%;
@@ -227,8 +111,6 @@ iframe {
 	right: -48%;
 	cursor: pointer;
 }
-
-
 p {
 	display: contents;
 }
@@ -236,8 +118,8 @@ p {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
+	cursor: pointer;
 }
-
 .cantidad {
 	position: absolute;
 	width: 40px;
@@ -247,9 +129,119 @@ p {
 	border-radius: 30%;
 	font-size: 16px;
 }
-
-
-
+.cant {
+	position: absolute;
+	color: black;
+	margin-top: -12px;
+	font-size: 13px;
+	z-index: 1;
+}
+/* TARJETAS */
+.container {
+	display: inline-flex;
+}
+.card {
+	margin-top: 65px;
+	margin-left: 25px;
+	width: 250px;
+	height: 450px;
+	padding: 6px;
+	border: 5px solid red;
+	border-radius: 0 20px;
+	box-shadow: 10px 10px 10px rgb(31, 30, 30);
+	text-align: center;
+}
+.fotoCard {
+	width: 240px;
+	height: 280px;
+	border-radius: 0 20px 0 0;
+	box-shadow: 5px 10px 10px black;
+}
+.descripcion {
+	display: none;
+	position: absolute;
+	width: 240px;
+	padding: 5px;
+	margin-top: -280px;
+	color: white;
+	font-size: 20px;
+	background-color: red;
+	border-radius: 15px;
+	z-index: 1;
+	user-select: none;
+}
+.descript:hover > .descripcion {
+	display: grid;
+}
+h4 {
+	position: absolute;
+	margin-top: -85px;
+	margin-left: 20px;
+	font-size: 60px;
+	color: rgba(0, 0, 0, 0.339);
+	border-radius: 20px;
+	padding: 5px;
+	user-select: none;
+}
+/* SOBRE NOSOTROS */
+.h1 {
+	position: absolute;
+	font-size: 3.5vw;
+	text-decoration: underline;
+	margin-left: 10px;
+}
+.sobreNos {
+	position: absolute;
+	width: 70%;
+	height: 300px;
+	color: black;
+	margin-top: 220px;
+	font-size: 2.7vw;
+	left: 15%;
+}
+.mapa {
+	position: absolute;
+	margin-top: 650px;
+	margin-left: 50px;
+}
+iframe {
+	width: 700px;
+	height: 400px;
+}
+.telef {
+	position: absolute;
+	margin-top: 700px;
+	font-size: 3vw;
+	left: 60%;
+}
+.title {
+	background-color: rgb(255, 72, 0);
+	border-radius: 15px;
+	height: 80px;
+	width: 245px;
+	font-size: 20px;
+}
+.precios {
+	width: 240px;
+}
+.pre {
+	display: contents;
+	font-size: 25px;
+	color: rgb(120, 4, 4);
+}
+.btn {
+	width: 200px;
+	height: 30px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: bolder;
+	cursor: pointer;
+	background-color: rgb(255, 34, 0);
+	margin-left: 50px;
+}
+.btn:active {
+	transform: scale(0.85);
+}
 @media only screen and (max-width: 1280px) {
 	#esconder {
 		right: 150px;
@@ -263,7 +255,6 @@ p {
 		top: 20px;
 	}
 }
-
 @media only screen and (max-width: 785px) {
 	#list {
 		font-size: 20px;
