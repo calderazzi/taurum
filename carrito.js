@@ -1,9 +1,11 @@
 let carrito = [];
+let estaEnCarrito;
 const listaJuegos = document.getElementById("contenedor");
 const listaCarrito = document.getElementById("carroLista");
 const precioTotal = document.getElementById("total");
 
 mostrarJuegos();
+cargaCarro();
 
 function mostrarJuegos() {
   arrayJuegos.forEach(juego => {
@@ -36,14 +38,16 @@ function mostrarJuegos() {
 }
 
 function agregarCarrito(juego) {
-  let estaEnCarrito = carrito.find(nombre => nombre.juego == juego);
+  estaEnCarrito = carrito.find(nombre => nombre.juego == juego);
   if(estaEnCarrito) {
     let agregar = document.getElementById(`agregar${juego}`);
     estaEnCarrito.cantidad = Number(estaEnCarrito.cantidad) + Number(agregar.value);
     let precioNuevo = estaEnCarrito.cantidad * estaEnCarrito.precio;
     document.getElementById(`cantidad${estaEnCarrito.juego}`).innerHTML = `<p id="cantidad${estaEnCarrito.cantidad}">${estaEnCarrito.cantidad}</p>`
     document.getElementById(`precioCarro${estaEnCarrito.juego}`).innerHTML = `<p id="precioCarro${estaEnCarrito.juego}">${precioNuevo}</p>`
-    carrito.push(estaEnCarrito);
+    for(let i=0; i < Number(agregar.value); i++) {
+      carrito.push(estaEnCarrito);
+    }    
     let mandarPrecioNuevo = agregar.value * estaEnCarrito.precio;
     sumar(mandarPrecioNuevo);
   }else {
@@ -52,13 +56,15 @@ function agregarCarrito(juego) {
     contenedor.setAttribute("id", "todoCarrito");
     contenedor.innerHTML = "";
     listaCarrito.appendChild(contenedor);
-    let juegoAgregar = arrayJuegos.find(el=> el.juego == juego);
-    juegoAgregar.cantidad = agregar.value
-    carrito.push(juegoAgregar);
+    estaEnCarrito = arrayJuegos.find(el=> el.juego == juego);
+    estaEnCarrito.cantidad = agregar.value
+    for(let i=0; i < Number(agregar.value); i++) {
+      carrito.push(estaEnCarrito);
+    }   
     document.getElementById(`esconder`).style.display = "flex";
     document.getElementById("btnCarro").style.color = "red";
     document.getElementById("btnCarro").style.backgroundColor = "rgb(255, 200, 0)";
-    mostrarCarrito(juegoAgregar);
+    mostrarCarrito(estaEnCarrito);
   }
 }
 
@@ -66,7 +72,7 @@ function mostrarCarrito(juegoAgregar) {
   let agregar = document.getElementById(`agregar${juegoAgregar.juego}`);
   agregar = agregar.value * juegoAgregar.precio;
   let div = document.createElement(`div`);
-  div.setAttribute("id", "list");
+  div.setAttribute("id", `list${juegoAgregar.juego}`);
   div.innerHTML = `<p id="cantidad${juegoAgregar.juego}">${juegoAgregar.cantidad}</p> <p id="tituloCarro${juegoAgregar.juego}">${juegoAgregar.juego} $</p><p id="precioCarro${juegoAgregar.juego}">${agregar}</p> <button class="btnEliminar" id="btnEliminar${juegoAgregar.juego}"><i class="fa-solid fa-trash-can"></i></button>`;
   document.getElementById("carroLista").appendChild(div);
   sumar(agregar);
@@ -80,10 +86,12 @@ function eliminarJuego(juegoBorrar) {
     carrito = carrito.filter(el => el.juego !== juegoBorrar.juego);
     document.getElementById(`cantidad${juegoBorrar.juego}`).innerHTML = `<p id="cantidad${juegoBorrar.cantidad}">${juegoBorrar.cantidad}</p>`;
     btnEliminar.parentElement.remove();
+    contadorCarro();
   })
 }
 
 function sumar(total) {
+  contadorCarro();
   let numer = parseInt(precioTotal.innerText)
   numer += total;
   precioTotal.innerText = numer;
@@ -101,11 +109,6 @@ function restar(juegoEnCarrito) {
   }
 }
 
-function contadorCarro() {
-  let cantidadCarro = carrito.length
-  document.getElementById("contador").innerText = cantidadCarro;
-}
-
 function transicion() {
   let entrarCarro = document.getElementById("btnCarro");
   entrarCarro.addEventListener(`click`, ()=> {
@@ -117,4 +120,23 @@ function transicion() {
     let ocultar = document.getElementById("carroLista");
     ocultar.style.display = "none";
   })
+}
+
+function guardarCarrito() {
+  localStorage.setItem("carroGuardado",JSON.stringify(carrito));
+}
+function cargaCarro() {
+  let arrayStorage = JSON.parse(localStorage.getItem("carroGuardado"));
+  if(arrayStorage) {
+    for(elements of arrayStorage) {
+      agregarCarrito(elements.juego);
+    }
+    transicion();
+  }
+}
+
+function contadorCarro() {
+  guardarCarrito();
+  let cantidadCarro = carrito.length;
+  document.getElementById("contador").innerText = cantidadCarro;
 }

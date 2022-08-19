@@ -74,6 +74,96 @@ i {
 	box-shadow: 4px 4px black;
 	transition: all 1s;
 }
+/* TARJETAS */
+.container {
+	display: inline-flex;
+}
+.card {
+	margin-top: 65px;
+	margin-left: 25px;
+	width: 250px;
+	height: 450px;
+	padding: 6px;
+	border: 5px solid red;
+	border-radius: 0 20px;
+	box-shadow: 10px 10px 10px rgb(31, 30, 30);
+	text-align: center;
+}
+.fotoCard {
+	width: 240px;
+	height: 280px;
+	border-radius: 0 20px 0 0;
+	box-shadow: 5px 10px 10px black;
+}
+.descripcion {
+	display: none;
+	position: absolute;
+	width: 240px;
+	padding: 5px;
+	margin-top: -280px;
+	color: white;
+	font-size: 20px;
+	background-color: red;
+	border-radius: 15px;
+	z-index: 1;
+	user-select: none;
+}
+.descript:hover > .descripcion {
+	display: grid;
+}
+h4 {
+	position: absolute;
+	margin-top: -85px;
+	margin-left: 10px;
+	font-size: 60px;
+	color: rgba(0, 0, 0, 0.339);
+	user-select: none;
+}
+.title {
+	background-color: rgb(255, 72, 0);
+	border-radius: 15px;
+	height: 80px;
+	width: 245px;
+	font-size: 20px;
+}
+.precios {
+	width: 240px;
+	padding: 3px;
+}
+.pre {
+	display: contents;
+	font-size: 25px;
+	color: rgb(120, 4, 4);
+}
+.btn {
+	width: 200px;
+	height: 30px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: bolder;
+	cursor: pointer;
+	background-color: rgb(255, 34, 0);
+	margin-left: 50px;
+}
+.btn:active {
+	transform: scale(0.85);
+}
+.cantidad {
+	position: absolute;
+	width: 40px;
+	height: 25px;
+	border: 1px solid red;
+	background-color: rgb(232, 214, 49);
+	border-radius: 30%;
+	font-size: 16px;
+}
+.cant {
+	position: absolute;
+	color: black;
+	margin-top: -12px;
+	font-size: 13px;
+	z-index: 1;
+}
 /* CARRITO */
 .carrito {
 	position: absolute;
@@ -120,69 +210,7 @@ p {
 	border-radius: 50%;
 	cursor: pointer;
 }
-.cantidad {
-	position: absolute;
-	width: 40px;
-	height: 25px;
-	border: 1px solid red;
-	background-color: rgb(232, 214, 49);
-	border-radius: 30%;
-	font-size: 16px;
-}
-.cant {
-	position: absolute;
-	color: black;
-	margin-top: -12px;
-	font-size: 13px;
-	z-index: 1;
-}
-/* TARJETAS */
-.container {
-	display: inline-flex;
-}
-.card {
-	margin-top: 65px;
-	margin-left: 25px;
-	width: 250px;
-	height: 450px;
-	padding: 6px;
-	border: 5px solid red;
-	border-radius: 0 20px;
-	box-shadow: 10px 10px 10px rgb(31, 30, 30);
-	text-align: center;
-}
-.fotoCard {
-	width: 240px;
-	height: 280px;
-	border-radius: 0 20px 0 0;
-	box-shadow: 5px 10px 10px black;
-}
-.descripcion {
-	display: none;
-	position: absolute;
-	width: 240px;
-	padding: 5px;
-	margin-top: -280px;
-	color: white;
-	font-size: 20px;
-	background-color: red;
-	border-radius: 15px;
-	z-index: 1;
-	user-select: none;
-}
-.descript:hover > .descripcion {
-	display: grid;
-}
-h4 {
-	position: absolute;
-	margin-top: -85px;
-	margin-left: 20px;
-	font-size: 60px;
-	color: rgba(0, 0, 0, 0.339);
-	border-radius: 20px;
-	padding: 5px;
-	user-select: none;
-}
+
 /* SOBRE NOSOTROS */
 .h1 {
 	position: absolute;
@@ -213,34 +241,6 @@ iframe {
 	margin-top: 700px;
 	font-size: 3vw;
 	left: 60%;
-}
-.title {
-	background-color: rgb(255, 72, 0);
-	border-radius: 15px;
-	height: 80px;
-	width: 245px;
-	font-size: 20px;
-}
-.precios {
-	width: 240px;
-}
-.pre {
-	display: contents;
-	font-size: 25px;
-	color: rgb(120, 4, 4);
-}
-.btn {
-	width: 200px;
-	height: 30px;
-	border-radius: 10px;
-	font-size: 18px;
-	font-weight: bolder;
-	cursor: pointer;
-	background-color: rgb(255, 34, 0);
-	margin-left: 50px;
-}
-.btn:active {
-	transform: scale(0.85);
 }
 @media only screen and (max-width: 1280px) {
 	#esconder {
@@ -309,8 +309,47 @@ iframe {
 		width: 400px;		
 		height: 350px;
 	}
+	.carroLista {
+		font-size: 25px;
+	}
 }
 @media only screen and (max-width: 420px) {
+	.card {
+		width: 300px;
+		margin-left: 5px;
+	}
+	.fotoCard {
+		width: 290px;
+		height: 320px;
+	}
+	.descripcion {
+		width: 290px;
+	}
+	.title {
+		font-size: 17px;
+		width: 290px;
+		height: 60px;
+		margin-top: -12px;
+	}
+	.precios {
+		width: 290px;
+	}
+	.pre {
+		font-size: 20px;
+	}
+	.cantidad {
+		margin-left: -23px;
+	}
+	.whatsapp {
+		width: 40px;
+		height: 40px;
+		bottom: 5px;
+		right: 5px;
+	}
+	.whatsapp-icon {
+		margin-top: 4px;
+		font-size: 35px;
+	}
 	.sobreNos{
 		font-size: 17px;
 	}
@@ -340,5 +379,10 @@ iframe {
 	}
 	.card{
 		margin-left: 45px;
+	}
+	.carroLista {
+		font-size: 20px;
+		width: 90%;
+		margin-left: 5%;
 	}
 }
