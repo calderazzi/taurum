@@ -210,7 +210,33 @@ p {
 	border-radius: 50%;
 	cursor: pointer;
 }
-
+#btnComprar {
+	position: absolute;
+	width: 100px;
+	bottom: 0;
+	left: 0;
+	font-size: 16px;
+	background-color: rgb(255, 98, 0);
+	color: white;
+	padding: 2px;
+	border: 2px solid white;
+	border-radius: 30px;
+	cursor: pointer;
+}
+#fecha {
+	display: none;
+	position: absolute;
+	background-color: rgb(216, 53, 53);
+	width: 280px;
+	height: 150px;
+	top: 40%;
+	left: 33%;
+	border: black 10px solid;
+	border-radius: 20px;
+	padding: 5px;
+	font-size: 40px;
+	z-index: 100;
+}
 /* SOBRE NOSOTROS */
 .h1 {
 	position: absolute;
@@ -256,6 +282,9 @@ iframe {
 	}
 }
 @media only screen and (max-width: 785px) {
+	#fecha {
+		left: 20%;
+	}
 	#list {
 		font-size: 20px;
 	}
@@ -311,9 +340,20 @@ iframe {
 	}
 	.carroLista {
 		font-size: 25px;
+		width: 90%;
+		margin-left: 5%;
 	}
 }
 @media only screen and (max-width: 420px) {
+	#fecha {
+		left: 10%;
+		width: 300px;
+		padding: 0;
+	}
+	#btnComprar {
+		width: 65px;
+		font-size: 10px;
+	}
 	.card {
 		width: 300px;
 		margin-left: 5px;
@@ -382,7 +422,7 @@ iframe {
 	}
 	.carroLista {
 		font-size: 20px;
-		width: 90%;
-		margin-left: 5%;
+		width: 100%;
+		margin-left: 0%;
 	}
 }
