@@ -4,11 +4,38 @@ const listaJuegos = document.getElementById("contenedor");
 const listaCarrito = document.getElementById("carroLista");
 const precioTotal = document.getElementById("total");
 
-mostrarJuegos();
-cargaCarro();
+MostrarJuegos(arrayJuegos);
+const nombreProductoAgregar = document.getElementById(`nombreProductoBuscar`);
+nombreProductoAgregar.addEventListener(`input`, () => {
+  let encontrados = arrayJuegos.filter(({nombre}) => {
+    return nombre.toLowerCase().includes(nombreProductoAgregar.value.toLowerCase());
+  });
+  MostrarJuegos(encontrados);
+});
 
-function mostrarJuegos() {
-  arrayJuegos.forEach(juego => {
+function MostrarJuegos(array) {
+  listaJuegos.innerHTML = "";
+  if(array.length === 0) {
+    const Toast = Swal.mixin({ 
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1800,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    Toastify({
+      text: 'No se encontró!',
+      duration: 1900,
+      position: 'left',
+      gravity: "top"
+  }).showToast()
+    MostrarJuegos(arrayJuegos);
+  }
+  array.forEach(juego => {
     let div = document.createElement(`div`);
       div.className =  `container`;
       div.innerHTML =  `<div class="card">
@@ -43,8 +70,8 @@ function agregarCarrito(juego) {
     let agregar = document.getElementById(`agregar${juego}`);
     estaEnCarrito.cantidad = Number(estaEnCarrito.cantidad) + Number(agregar.value);
     let precioNuevo = estaEnCarrito.cantidad * estaEnCarrito.precio;
-    document.getElementById(`cantidad${estaEnCarrito.nombre}`).innerHTML = `<p id="cantidad${estaEnCarrito.cantidad}">${estaEnCarrito.cantidad}</p>`
-    document.getElementById(`precioCarro${estaEnCarrito.nombre}`).innerHTML = `<p id="precioCarro${estaEnCarrito.nombre}">${precioNuevo}</p>`
+    document.getElementById(`cantidad${estaEnCarrito.nombre}`).innerHTML = `<p id="cantidad${estaEnCarrito.cantidad}">${estaEnCarrito.cantidad}</p>`;
+    document.getElementById(`precioCarro${estaEnCarrito.nombre}`).innerHTML = `<p id="precioCarro${estaEnCarrito.nombre}">${precioNuevo}</p>`;
     for(let i=0; i < Number(agregar.value); i++) {
       carrito.push(estaEnCarrito);
     }    
@@ -53,7 +80,7 @@ function agregarCarrito(juego) {
   }else {
     let agregar = document.getElementById(`agregar${juego}`);
     estaEnCarrito = arrayJuegos.find(el=> el.nombre == juego);
-    estaEnCarrito.cantidad = agregar.value
+    estaEnCarrito.cantidad = agregar.value;
     for(let i=0; i < Number(agregar.value); i++) {
       carrito.push(estaEnCarrito);
     }   
@@ -145,14 +172,32 @@ function transicion() {
   })
 }
 
-
-
 function guardarCarrito() {
   localStorage.setItem("carroGuardado",JSON.stringify(carrito));
 }
+
+cargaCarro();
+
 function cargaCarro() {
   let arrayStorage = JSON.parse(localStorage.getItem("carroGuardado"));
   if(arrayStorage) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1800,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    Toastify({
+      text: 'Tu carrito te espera!',
+      duration: 1900,
+      position: 'right',
+      gravity: "top"
+  }).showToast()
     for(elements of arrayStorage) {
       agregarCarrito(elements.nombre);
     }
@@ -166,7 +211,7 @@ function contadorCarro() {
 }
 
 function whatsapp() {
-  document.getElementById("fecha").style.display = "block"
+  document.getElementById("fecha").style.display = "block";
   const result = [];
   carrito.forEach((item)=>{
     if(!result.includes(item)){
@@ -181,8 +226,8 @@ function whatsapp() {
   let btnEnviar = document.getElementById(`fechaEvento`);
   btnEnviar.addEventListener(`click`, ()=> {
     let fechaSeleccionada = document.getElementById("fechaSeleccionada").value;
-    wsp = `Hola! Necesitaría saber disponibilidad para el: ${fechaSeleccionada} de: ${wsp} TOTAL: $${precioTotal.innerText}`
-    document.getElementById("fecha").style.display = "none"
+    wsp = `Hola! Necesitaría saber disponibilidad para el: ${fechaSeleccionada} de: ${wsp} TOTAL: $${precioTotal.innerText}`;
+    document.getElementById("fecha").style.display = "none";
     carrito = [];
     guardarCarrito();
     window.open(`https://wa.me/543834322324?text=${wsp}`);

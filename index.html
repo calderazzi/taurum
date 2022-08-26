@@ -8,6 +8,7 @@
 		<title>Taurum - Toro Loco</title>
 		<link rel="icon" type="text/css" href="fotos/toro.ico">
 		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 		<script src="https://kit.fontawesome.com/d7d9422d2d.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
@@ -33,6 +34,9 @@
 				</div>
 			</nav>
 		</header>
+		<div id="containerInputs">
+			<input class="input" id="nombreProductoBuscar" type="text" placeholder="Búsqueda por nombre">
+		</div>
 		<section>
 			<div id="contenedor"></div>
 		</section>
@@ -41,8 +45,9 @@
 			<!-- WHATSAPP -->
 			<a href="https://wa.me/543834322324?text=Me%20contacto%20desde%20la%20pagina%20Taurum" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 		</footer>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="inventario.js"></script>
-		<script src="carrito.js"></script>
+		<script async src="inventario.js"></script>
+		<script async src="carrito.js"></script>
 	</body>
 </html>
