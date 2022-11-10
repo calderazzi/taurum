@@ -16,17 +16,6 @@ nombreProductoAgregar.addEventListener(`input`, () => {
 function MostrarJuegos(array) {
   listaJuegos.innerHTML = "";
   if(array.length === 0) {
-    const Toast = Swal.mixin({ 
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 1800,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
     Toastify({
       text: 'No se encontró!',
       duration: 1900,
@@ -40,7 +29,7 @@ function MostrarJuegos(array) {
       div.className =  `container`;
       div.innerHTML =  `<div class="card">
                           <div class="descript">
-                            <img class="fotoCard" src="fotos/${juego.foto}">
+                            <img class="fotoCard" src="fotos/${juego.foto}" alt="foto de ${juego.nombre}">
                             <div class="descripcion">${juego.descripcion}</div>
                           </div>
                           <h4>Taurum</h4>
@@ -88,7 +77,7 @@ function agregarCarrito(juego) {
     document.getElementById("btnCarro").style.color = "red";
     document.getElementById("btnCarro").style.backgroundColor = "rgb(255, 200, 0)";
     mostrarCarrito(estaEnCarrito);
-if(carrito.length == 1) {
+if(carrito.length >= 1) {
     let divwsp = document.createElement(`div`);
       divwsp.innerHTML = `<button id="btnComprar">Pedir disponibilidad por whatsapp</button>`;
       listaCarrito.appendChild(divwsp); 
@@ -125,15 +114,15 @@ function eliminarJuego(juegoBorrar) {
     }).then((result) => {
       if (result.isConfirmed) {
         restar(juegoBorrar);
-         carrito = carrito.filter(el => el.nombre !== juegoBorrar.nombre);
-         document.getElementById(`cantidad${juegoBorrar.nombre}`).innerHTML = `<p id="cantidad${juegoBorrar.cantidad}">${juegoBorrar.cantidad}</p>`;
-         btnEliminar.parentElement.remove();
-         contadorCarro();
-         Swal.fire({
+        carrito = carrito.filter(el => el.nombre !== juegoBorrar.nombre);
+        document.getElementById(`cantidad${juegoBorrar.nombre}`).innerHTML = `<p id="cantidad${juegoBorrar.cantidad}">${juegoBorrar.cantidad}</p>`;
+        btnEliminar.parentElement.remove();
+        contadorCarro();
+        Swal.fire({
           icon: 'success',
           title: 'Confirmado!',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1000
         })
       }      
     })
@@ -181,24 +170,13 @@ cargaCarro();
 function cargaCarro() {
   let arrayStorage = JSON.parse(localStorage.getItem("carroGuardado"));
   if(arrayStorage) {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 1800,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
     Toastify({
       text: 'Tu carrito te espera!',
-      duration: 1900,
+      duration: 1500,
       position: 'right',
       gravity: "top"
   }).showToast()
-    for(elements of arrayStorage) {
+    for(let elements of arrayStorage) {
       agregarCarrito(elements.nombre);
     }
     transicion();
@@ -208,6 +186,9 @@ function cargaCarro() {
 function contadorCarro() {
   guardarCarrito();
   document.getElementById("contador").innerText = carrito.length;
+  if (carrito.length == 0) {
+    localStorage.clear();
+  }
 }
 
 function whatsapp() {
@@ -219,7 +200,7 @@ function whatsapp() {
     }
   })
   let wsp = "";
-  for(elements of result) {
+  for(let elements of result) {
     wsp += `${elements.cantidad} ${elements.nombre}; 
 `;
   }
@@ -229,7 +210,7 @@ function whatsapp() {
     wsp = `Hola! Necesitaría saber disponibilidad para el: ${fechaSeleccionada} de: ${wsp} TOTAL: $${precioTotal.innerText}`;
     document.getElementById("fecha").style.display = "none";
     carrito = [];
-    guardarCarrito();
+    localStorage.clear();
     window.open(`https://wa.me/543834322324?text=${wsp}`);
     location.reload();
   })

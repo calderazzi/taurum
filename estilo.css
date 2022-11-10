@@ -1,6 +1,6 @@
 /* GENERAL */
 html {
-	background-image: linear-gradient(to right, rgb(212, 175, 25), rgb(255, 111, 0), rgb(238, 117, 23), rgb(255, 102, 0)); 
+	background-image: linear-gradient(to right, rgb(209, 167, 0), rgb(250, 223, 50), rgb(238, 170, 23), rgb(235, 195, 19)); 
 	}
 body {
 	margin-top: 0;
@@ -10,51 +10,27 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
-/* WHATSAPP */
-.whatsapp {
-	position:fixed;
-	width: 60px;
-	height: 60px;
-	bottom: 15px;
-	right: 15px;
-	background-color:#1df56ca1;
-	color:rgba(255, 255, 255, 0.733);
-	border-radius:50px;
-	text-align:center;
-	z-index:100;
-}
-.whatsapp-icon {
-	margin-top: 7px;
-	font-size: 48px;
-}
 /* NAVEGACION */
 .nav {
 	position: fixed;
 	width: 100%;
-	background-image: linear-gradient(to right, rgb(205, 85, 76), rgb(228, 46, 33), rgb(142, 14, 14));
+	background-color: rgb(187, 16, 16) ;
 	border-radius: 0 0 15px 15px;
-	z-index: 1;
+	z-index: 10;
 }
 .nav__li {
 	color: white;
 	display: inline-block;
+	text-decoration: none;
 }
 .nav__li:hover {
-	color: #707070;
-	transition: all 1s;
-}
-.nav__li a {
-	color: white;
-	font-family: sans-serif;
-}
-.nav__li:hover a {
-	color: #707070;
-	transition: all 1s;
+	color: red;
+	transition: all 0.5s;
 }
 .nav__sub {
 	position: fixed;
 	bottom: 10px;
-	left: 5px;
+	left: 3px;
 	color: white;
 	display: inline-block;
 	cursor: pointer;
@@ -63,19 +39,21 @@ body::-webkit-scrollbar {
 	color: #707070;
 	transition: all 1s;
 }
-i {
+.subir {
+	font-size: 10px;
+}
+em {
 	font-size: 25px;
 }
 #cabeza {
-	height: 50px;
+	height: 60px;
 	float: right;
-	margin: -12px 10px;
+	margin: -16px 10px;
 	border-radius: 100px;
 }
 #cabeza:hover {
 	height: 65px;
-	box-shadow: 4px 4px black;
-	transition: all 1s;
+	transition: all 0.5s;
 }
 /* TARJETAS */
 #containerInputs {
@@ -87,25 +65,24 @@ i {
 	margin-top: 65px;
 	font-size: 20px;
 	font-weight: bolder;
-	border: 4px solid red;
+	border: 4px solid blue;
 	border-radius: 15px;
 }
-
 .container {
 	display: inline-flex;
 }
 .card {
-	margin: 25px;
-	width: 250px;
+	margin: 15px;
+	width: 280px;
 	height: 450px;
 	padding: 6px;
-	border: 5px solid red;
+	border: 5px solid blue;
 	border-radius: 0 20px;
 	box-shadow: 10px 10px 10px rgb(31, 30, 30);
 	text-align: center;
 }
 .fotoCard {
-	width: 240px;
+	width: 260px;
 	height: 280px;
 	border-radius: 0 20px 0 0;
 	box-shadow: 5px 10px 10px black;
@@ -113,7 +90,7 @@ i {
 .descripcion {
 	display: none;
 	position: absolute;
-	width: 240px;
+	width: 260px;
 	padding: 5px;
 	margin-top: -280px;
 	color: white;
@@ -138,12 +115,13 @@ h4 {
 	background-color: rgb(255, 72, 0);
 	border-radius: 15px;
 	height: 80px;
-	width: 245px;
+	width: 280px;
 	font-size: 20px;
 }
 .precios {
-	width: 240px;
+	width: 220px;
 	padding: 3px;
+	margin-left: 50px;
 }
 .pre {
 	display: contents;
@@ -160,12 +138,16 @@ h4 {
 	background-color: rgb(255, 34, 0);
 	margin-left: 50px;
 }
+.btn:hover {
+	background-color: rgb(218, 42, 15);
+}
 .btn:active {
 	transform: scale(0.85);
 }
 .cantidad {
 	position: absolute;
-	width: 40px;
+	margin-left: -15px;
+	width: 50px;
 	height: 25px;
 	border: 1px solid red;
 	background-color: rgb(232, 214, 49);
@@ -175,8 +157,9 @@ h4 {
 .cant {
 	position: absolute;
 	color: black;
-	margin-top: -12px;
-	font-size: 13px;
+	margin-top: -14px;
+	font-size: 15px;
+	font-weight: bold;
 	z-index: 1;
 }
 /* CARRITO */
@@ -198,14 +181,14 @@ h4 {
 	right: 200px;
 	top: 15px;
 	width: 200px;
-	font-size: 30px;
+	font-size: 27px;
 }
 .carroLista {
 	position: absolute;
 	margin: auto 15%;
 	display: none;
 	width: 70%;
-	background-color: rgba(255, 0, 0, 0.729);
+	background-color: rgba(0, 34, 255, 0.833);
 	text-align: center;
 	color: white;
 	font-size: 30px;
@@ -227,16 +210,19 @@ p {
 }
 #btnComprar {
 	position: absolute;
-	width: 100px;
+	width: 105px;
 	bottom: 0;
 	left: 0;
 	font-size: 16px;
 	background-color: rgb(255, 98, 0);
 	color: white;
-	padding: 2px;
-	border: 2px solid white;
+	padding: 4px;
+	border: 2px solid black;
 	border-radius: 30px;
 	cursor: pointer;
+}
+#btnComprar:hover {
+	background-color: red;
 }
 #fecha {
 	display: none;
@@ -255,7 +241,7 @@ p {
 /* SOBRE NOSOTROS */
 .h1 {
 	position: absolute;
-	font-size: 3.5vw;
+	font-size: 3vw;
 	text-decoration: underline;
 	margin-left: 10px;
 }
@@ -270,7 +256,7 @@ p {
 }
 .mapa {
 	position: absolute;
-	margin-top: 650px;
+	margin-top: 600px;
 	margin-left: 50px;
 }
 iframe {
@@ -279,7 +265,7 @@ iframe {
 }
 .telef {
 	position: absolute;
-	margin-top: 700px;
+	margin-top: 650px;
 	font-size: 3vw;
 	left: 60%;
 }
@@ -288,7 +274,7 @@ iframe {
 		right: 150px;
 	}
 	.telef {
-		margin-top: 530px;
+		margin-top: 510px;
 		font-size: 2vw;
 		left: 50%;
 	}
@@ -317,7 +303,7 @@ iframe {
 	.nav__li a {
 		font-size: 18px;
 	}
-	i {
+	em {
 		font-size: 18px;
 	}
 	.carrito {
@@ -397,16 +383,6 @@ iframe {
 	.cantidad {
 		margin-left: -23px;
 	}
-	.whatsapp {
-		width: 40px;
-		height: 40px;
-		bottom: 5px;
-		right: 5px;
-	}
-	.whatsapp-icon {
-		margin-top: 4px;
-		font-size: 35px;
-	}
 	.sobreNos{
 		font-size: 17px;
 	}
@@ -424,7 +400,7 @@ iframe {
 	.sobreNos {
 		margin-top: 100px;
 	}
-	i {
+	em {
 		font-size: 14px;
 	}
 	.nav__li a {
