@@ -4,7 +4,7 @@ let arrayJuegos = [
   {nombre: "Proyector y Pantalla", precio: 6500, foto: "pantalla.jpg", descripcion: "Proyector mas pantalla grande para la proyección de video. En nuestro salón"},
   {nombre: "Animador", precio: 7000, foto: "animador.jpg", descripcion: "El animador es como el locutor de la fiesta, el que le pone onda, no es animación para niños. El servicio es de 6 horas En nuestro salón"},
   {nombre: "Parlante chico mas luces", precio: 6000, foto: "parlante.jpg", descripcion: "Parlante chico con conección bluetooth, cable o pendrive. Cuenta con micrófono, luz láser y 2 luces audiorítmicas. En nuestro salón"},
-  {nombre: "Ornamentación", precio: 13000, foto: "foto7.jpg", descripcion: "La ornamentación es para nuestro salón, incluye colgado y armado de telas, cortinado, accesorios y algunos globos, puede agregar mas si desea."},
+  {nombre: "Ornamentación", precio: 16000, foto: "foto7.jpg", descripcion: "La ornamentación es para nuestro salón, incluye colgado y armado de telas, cortinado, accesorios y algunos globos, puede agregar mas si desea."},
   {nombre: "Servicio de vestir", precio: 1200, foto: "foto8.jpg", descripcion: "El servicio de vestir mesas y sillas incluye solo el trabajo de armar 1 mesa con su mantel y cubresilla mas las 10 sillas con sus vestidos y moños. En nuestro salón"},
   {nombre: "Panchera Grande", precio: 3000, foto: "panchera.jpg", descripcion: "Panchera grande, no incluye el gas, puede pedir con gas sumandole el precio de la carga de gas de la garrafa. Costo de envío dependiendo la zona."},
   {nombre: "Candelabro 15 velas", precio: 2500, foto: "candelabro.jpg", descripcion: "Candelabro para poner las 15 velas de los 15 años. Costo de envío dependiendo la zona."},
