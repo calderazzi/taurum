@@ -181,7 +181,7 @@ h4 {
 	right: 200px;
 	top: 15px;
 	width: 200px;
-	font-size: 27px;
+	font-size: 25px;
 }
 .carroLista {
 	position: absolute;
@@ -311,7 +311,7 @@ iframe {
 	}
 	#esconder {
 		right: -15px;
-		font-size: 20px;
+		font-size: 17px;
 	}
 	.nav__li {
 		padding-left: 4px;
@@ -407,7 +407,7 @@ iframe {
 		font-size: 15px;
 	}
 	#esconder {
-		font-size: 18px;
+		font-size: 15px;
 	}
 	.carroLista {
 		font-size: 20px;
