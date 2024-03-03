@@ -1,5 +1,5 @@
 let arrayJuegos = [
-  {nombre: "Salón de Fiestas", precio: 40000, foto: "foto3.jpg", descripcion: "Salon de fiestas Taurum, incluye freezer grande, horno pizzero, microondas, aire acondicionado frio calor, y ventilador. Se entrega limpio a las 14hs hasta las 4am. Al finalizar nos encargamos nosotros de la limpieza. La capacidad del salón es hasta 120 personas."},
+  {nombre: "Salón de Fiestas", precio: 40000, foto: "foto3.jpg", descripcion: "Salon de fiestas Taurum, incluye freezer grande, horno pizzero, microondas, aire acondicionado frio calor, y ventilador. Se entrega limpio a las 16hs hasta las 4am. Al finalizar nos encargamos nosotros de la limpieza. La capacidad del salón es hasta 120 personas."},
   {nombre: "Dj, Sonido e Iluminación", precio: 30000, foto: "sonido.jpg", descripcion: "Dj en vivo mas sonido e iluminación en el salón, el servicio es de 7 horas. En nuestro salón"},
   {nombre: "Proyector y Pantalla", precio: 16000, foto: "pantalla.jpg", descripcion: "Proyector mas pantalla grande para la proyección de video. En nuestro salón"},
   {nombre: "Animador", precio: 22000, foto: "animador.jpg", descripcion: "El animador es como el locutor de la fiesta, el que le pone onda, no es animación para niños. El servicio es de 6 horas En nuestro salón"},
